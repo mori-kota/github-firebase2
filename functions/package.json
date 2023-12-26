@@ -7,8 +7,7 @@
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "frisby": "npm run build && firebase emulators:exec --project=fir-pj777 'jest' --only functions"
+    "logs": "firebase functions:log"
   },
   "engines": {
     "node": "18"
