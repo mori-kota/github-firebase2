@@ -17,4 +17,4 @@ jobs:
         run: npm ci -C functions
       - name: run frisby
         id: frisby
-        run: npm run frisby -C functions
+        run: npm run build && firebase emulators:exec 'jest' --only functions -C functions
