@@ -18,6 +18,15 @@ jobs:
       - name: run frisby
         id: frisby
         run: npm run frisby -C functions
+      - name: Notify frisby
+        uses: 8398a7/action-slack@v3.8.0
+        with:
+          status: ${{ steps.frisby.outcome }}
+          author_name: frisby テストの実行結果
+          fields: repo,message,commit,author,job,took,eventName
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
   k6Test:
     runs-on: ubuntu-latest
     steps:
@@ -36,3 +45,12 @@ jobs:
       - name: run k6
         id: k6
         run: npm run k6 -C functions
+      - name: Notify k6
+        uses: 8398a7/action-slack@v3.8.0
+        with:
+          status: ${{ steps.k6.outcome }}
+          author_name: k6 テストの実行結果
+          fields: repo,message,commit,author,job,took,eventName
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
