@@ -8,7 +8,8 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "frisby": "npm run build && firebase emulators:exec 'jest' --only functions"
+    "frisby": "npm run build && firebase emulators:exec 'jest' --only functions",
+    "k6": "npm run build && firebase emulators:exec './k6 run ./k6tests/index.js' --only functions --log-verbosity SILENT"
   },
   "engines": {
     "node": "18"
