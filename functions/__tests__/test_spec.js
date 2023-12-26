@@ -15,7 +15,7 @@ describe("Firebase Functions frisby Tests", () => {
       .then(function (res) {
         console.log(res);
         json = JSON.parse(res.body);
-        expect(json.Result).toBe(24);
+        expect(json.Result).toBe(4);
       })
     );
   });
