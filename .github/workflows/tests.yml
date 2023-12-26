@@ -15,16 +15,6 @@ jobs:
         run: npm install -g firebase-tools
       - name: install node_modules
         run: npm ci -C functions
-      - name: test
+      - name: run frisby
         id: frisby
         run: npm run frisby -C functions
-      # - name: Notify frisby
-      #   uses: 8398a7/action-slack@v3.8.0
-      #   with:
-      #     status: ${{ steps.frisby.outcome }}
-      #     author_name: frisby テストの実行結果
-      #     fields: repo,message,commit,author,job,took,eventName # 追加
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      #   if: always()
