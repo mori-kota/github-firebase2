@@ -19,4 +19,5 @@ export default function () {
   const res = http.post(`http://127.0.0.1:5001/fir-pj777/us-central1/testFunction`, JSON.stringify(data), {
     timeout: 310000,
   });
+  console.log("Response", res);
 }
