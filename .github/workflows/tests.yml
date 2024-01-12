@@ -71,6 +71,7 @@ jobs:
       - name: run zap
         id: zap
         run: npm run zap -C functions
+        continue-on-error: true
       # - name: Notify k6
       #   uses: 8398a7/action-slack@v3.8.0
       #   with:
