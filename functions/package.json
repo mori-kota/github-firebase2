@@ -10,7 +10,7 @@
     "logs": "firebase functions:log",
     "frisby": "npm run build && firebase emulators:exec 'jest' --only functions",
     "k6": "npm run build && firebase emulators:exec './k6 run ./k6tests/index.js' --only functions",
-    "zap": "npm run build && firebase emulators:exec 'docker run --add-host host.docker.internal:host-gateway -v $GITHUB_WORKSPACE/functions:/zap/wrk -t owasp/zap2docker-weekly zap-api-scan.py -t openapi.json -f openapi' --only functions"
+    "zap": "npm run build && firebase emulators:exec 'docker run --net=host --add-host host.docker.internal:host-gateway -v $GITHUB_WORKSPACE/functions:/zap/wrk -t owasp/zap2docker-weekly zap-api-scan.py -t openapi.json -f openapi' --only functions"
   },
   "engines": {
     "node": "18"
