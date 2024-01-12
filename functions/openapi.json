@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5001/fir-pj777/us-central1"
+      "url": "http://172.17.0.1:5001/fir-pj777/us-central1"
     }
   ],
   "paths": {
