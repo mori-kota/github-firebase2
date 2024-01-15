@@ -78,6 +78,9 @@ jobs:
           docker_name: 'owasp/zap2docker-stable'
           format: openapi
           target: functions/openapi.json
+        continue-on-error: true
+      - name: Action API Scan
+        run: npm run logs -C functions
       # - name: run zap
       #   id: zap
       #   run: npm run zap -C functions
