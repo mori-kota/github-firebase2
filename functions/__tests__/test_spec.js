@@ -3,7 +3,7 @@ const frisby = require('frisby');
 describe("Firebase Functions frisby Tests", () => {
   describe("frisbyTest", () => {
     test("Should contain status as ok, and response matches 24", () => 
-      frisby.post(`http://localhost:5001/fir-pj777/us-central1/testFunction` ,{
+      frisby.post(`http://127.0.0.1:5001/fir-pj777/us-central1/testFunction` ,{
         body:{
           data: {
             firstNumber: 6,
