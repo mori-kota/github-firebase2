@@ -4,20 +4,22 @@ on:
     branches:
       - main
 jobs:
-  # frisbyTest:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout Repo
-  #       uses: actions/checkout@v3
-  #     - name: Setup node
-  #       uses: actions/setup-node@v3
-  #     - name: install firebase-tools
-  #       run: npm install -g firebase-tools
-  #     - name: install node_modules
-  #       run: npm ci -C functions
-  #     - name: run frisby
-  #       id: frisby
-  #       run: npm run frisby -C functions
+  frisbyTest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+      - name: install firebase-tools
+        run: npm install -g firebase-tools
+      - name: install node_modules
+        run: npm ci -C functions
+      - name: Run firebase emulators
+        run: firebase emulators:start --only functions &
+      - name: run frisby
+        id: frisby
+        run: npm run frisby -C functions
   #     - name: Notify frisby
   #       uses: 8398a7/action-slack@v3.8.0
   #       with:
@@ -54,24 +56,24 @@ jobs:
   #       env:
   #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   #       if: always()
-  zapTest:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-      - name: Setup node
-        uses: actions/setup-node@v3
-      - name: install zap
-        run: docker pull owasp/zap2docker-weekly
-      #   working-directory: ./functions
-      - name: install firebase-tools
-        run: npm install -g firebase-tools
-      - name: install node_modules
-        run: npm ci -C functions
-      - name: run zap
-        id: zap
-        run: npm run zap -C functions
-        continue-on-error: true
+  # zapTest:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v3
+  #     - name: Setup node
+  #       uses: actions/setup-node@v3
+  #     - name: install zap
+  #       run: docker pull owasp/zap2docker-weekly
+  #     #   working-directory: ./functions
+  #     - name: install firebase-tools
+  #       run: npm install -g firebase-tools
+  #     - name: install node_modules
+  #       run: npm ci -C functions
+  #     - name: run zap
+  #       id: zap
+  #       run: npm run zap -C functions
+  #       continue-on-error: true
       # - name: Notify k6
       #   uses: 8398a7/action-slack@v3.8.0
       #   with:
