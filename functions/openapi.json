@@ -4,8 +4,8 @@
 		"version": "1.0",
 		"title": "Title"
 	},
-	"host": "127.0.0.1:5001/fir-pj777/us-central1",
-	"basePath": "/testFunction",
+	"host": "127.0.0.1:5001",
+	"basePath": "/fir-pj777/us-central1/testFunction",
 	"schemes": [
 		"http"
 	],
