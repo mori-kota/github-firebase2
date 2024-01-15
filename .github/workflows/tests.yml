@@ -16,8 +16,7 @@ jobs:
       - name: install node_modules
         run: npm ci -C functions
       - name: Run firebase emulators
-        run: firebase emulators:start --only functions &
-        working-directory: ./functions
+        run: npm run serve -C functions &
       - name: run frisby
         id: frisby
         run: npm run frisby -C functions
